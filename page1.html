@@ -2,16 +2,96 @@
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <title>Page 1</title>
-    <link rel="stylesheet" href="style.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Observation</title>
+
+    <style>
+      /* ===============================
+         🌑 DARK INTRIGUE PAGE
+      =============================== */
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Segoe UI", system-ui, sans-serif;
+        background: radial-gradient(
+          circle at top,
+          #0b1220 0%,
+          #020617 60%,
+          #00030a 100%
+        );
+        color: #e5e7eb;
+        overflow: hidden;
+      }
+
+      /* subtle noise / depth */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.015),
+          rgba(255, 255, 255, 0.015) 1px,
+          transparent 1px,
+          transparent 3px
+        );
+        pointer-events: none;
+        opacity: 0.15;
+      }
+
+      /* center container */
+      .center {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+      }
+
+      /* main text */
+      .message {
+        font-size: clamp(1.8rem, 4vw, 3rem);
+        font-weight: 600;
+        letter-spacing: 0.6px;
+        line-height: 1.4;
+        color: #f1f5f9;
+        text-shadow: 0 0 20px rgba(56, 189, 248, 0.15);
+        animation: fadeIn 1.6s ease forwards;
+      }
+
+      /* small underline glow */
+      .message::after {
+        content: "";
+        display: block;
+        width: 60px;
+        height: 3px;
+        margin: 22px auto 0;
+        background: linear-gradient(90deg, transparent, #38bdf8, transparent);
+        opacity: 0.6;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+    </style>
   </head>
+
   <body>
-    <h1>Page 1</h1>
-    <p>Voici ton texte pour la page 1, accessible hors ligne.</p>
-
-    <h3>Scanner le QR Code pour accéder à cette page :</h3>
-    <img src="qr_page1.png" alt="QR Code Page 1" />
-
-    <script src="script.js"></script>
+    <div class="center">
+      <div class="message">
+        Si tu es ici,<br />
+        ça veut dire que tu observes.
+      </div>
+    </div>
   </body>
 </html>
